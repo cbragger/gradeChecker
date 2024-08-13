@@ -1,0 +1,20 @@
+# If you import autochecker, it'll test the code
+# If you comment this line out, it won't test the code.
+import autochecker
+
+# Exercise:
+# Prompt user for a number from 1-10.
+num_times = input("Give number from 1-10: ")
+
+# Display error message if not a number
+if not num_times.isdigit():
+    print("User input not a number.")
+else: 
+    num_times = int(num_times)
+    # Display error message if not 1-10
+    if num_times < 1 or num_times > 10:
+        print("User input must be between 1 and 10.")
+    # print count from 1 to whatever number user input
+    else:
+        for i in range(num_times):
+            print(i + 1)

@@ -1,0 +1,41 @@
+from importlib.machinery import SourceFileLoader
+import inspect
+from pathlib import Path
+
+# We're only going to run this if imported
+if __name__ != "__main__":
+    # Get our current folderpath...
+    folderpath = Path().resolve().__str__()
+
+    # Use it to figure out who called us in the call stack
+    for filename in [f.filename for f in inspect.stack()]:
+        if folderpath.lower() in filename.lower() and "autochecker.py" not in filename.lower():
+            filepath = filename
+            break
+
+    # Grab that file and put its code into a function    
+    filename = filepath[filepath.rfind('\\')::]
+    with open(filepath) as f:
+        # This is disgusting.
+        source_code = f.read()
+        def test_function():
+            exec(source_code)
+
+    # Tests will need a standard naming convention
+    # test_[name of file].py should be fine
+    # and students can either name their python files to match the tests
+    # or rename the tests to match their naming scheme.
+    test_file = filepath.replace(filename, f"\\test_{filename[1::]}")
+    # Let's grab the matching test file and run some tests
+    with open(test_file) as f:
+        # This is also disgusting.
+        test_code = f.read()
+        exec(test_code)
+    
+    # We instantiate the test and pass in our function
+    # Run the test, output the result, and then exit()
+    test_test = TestTest(test_func=test_function)
+    print(test_test.run())
+    exit()
+else:
+    print("Please import me.")
