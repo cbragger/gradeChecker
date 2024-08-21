@@ -1,0 +1,11 @@
+# Text-based test cases
+# Text Output
+
+Hello, World!
+42
+
+# Math-based test cases
+# Mathematical Operations
+
+15.0
+5.0
