@@ -54,7 +54,7 @@ def grade_submission(student_script, expected_output_file):
     
     # Adjust the number of test cases
     text_outputs = [line.strip() for line in lines[:3]]
-    math_outputs = [line.strip() for line in lines[4:]]
+    math_outputs = [line.strip() for line in lines[3:]]
     
     total_tests = len(text_outputs) + len(math_outputs)
     correct_tests = 0
