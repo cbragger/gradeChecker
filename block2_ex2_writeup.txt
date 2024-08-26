@@ -1,0 +1,6 @@
+Create a python program that will utilize a while loop that accepts a user password.
+- If correct it will print out welcome {user name} and if wrong printout 'wrong password! You have tried and failed X# of Times!'
+- Then keep waiting till user types right password.
+- The while loop will count how many attempts have been made
+- If there have been 3 failed attempts then let the user know and quit the application.
+- Password = 'password'

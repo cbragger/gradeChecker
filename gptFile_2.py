@@ -2,9 +2,11 @@ import unittest
 import importlib.util
 import os
 import inspect
+import block2_ex2_solution
 
-def load_solution_code(soution):
+def load_solution_code(block2_ex2_solution):
     """Load the solution code from a Python file."""
+    file_path = block2_ex2_solution
     spec = importlib.util.spec_from_file_location("solution", file_path)
     solution = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(solution)
@@ -64,7 +66,7 @@ def run_unit_tests(test_case_class):
     return result
 
 # Path to the solution file
-solution_file = 'solution.py'
+solution_file = block2_ex2_solution
 
 # Load the solution module
 solution = load_solution_code(solution_file)
